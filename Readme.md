@@ -188,7 +188,7 @@ Name the instance ```MyPublicEC2Server```.  Check the defaults are correct.  Cre
 
 Edit the Network settings.
 
-Chnage the **VPC** to *MyVPC* and the **Subnet** to the public subnet.
+Change the **VPC** to *MyVPC* and the **Subnet** to the public subnet.
 
 *Enable* **Auto-assign publicIP**.
 
@@ -206,7 +206,7 @@ Name the instance ```MyPrivateEC2Server```.  Check the defaults are correct.  Cr
 
 Edit the Network settings.
 
-Chnage the **VPC** to *MyVPC* and the **Subnet** to the private subnet.
+Change the **VPC** to *MyVPC* and the **Subnet** to the private subnet.
 
 *Disable* **Auto-assign publicIP**.
 
@@ -232,7 +232,7 @@ Click *Allocate Elastic IP* then *Create NAT gateway*.
   <img width="1000" src="create nat 2.jpg">
 </p>
 
-Naviagte to **Route Tables** and select the main route table for MyVPC.
+Navigate to **Route Tables** and select the main route table for MyVPC.
 
 Click *Routes* then *Edit routes*.
 
