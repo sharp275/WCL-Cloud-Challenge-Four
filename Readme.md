@@ -67,7 +67,7 @@ Login into AWS and search/choose *VPC*.
 Click *Launch VPC Wizard*.
 
 <p align="center">
-  <img width="800" src="launch vpc wizard.jpg">
+  <img width="1000" src="launch vpc wizard.jpg">
 </p>
 
 Select *VPC only*. Name the VPC ```MyVPC```.  Check *IPv4 CIDR manual input*.
@@ -83,7 +83,7 @@ Click *Create VPC*.
 Select *Subnets* under **Virtual Private Cloud**.  Click *Create subnet*.
 
 <p align="center">
-  <img width="800" src="create subnets.jpg">
+  <img width="1000" src="create subnets.jpg">
 </p>
 
 Select *MyVPC* for **VPC ID**.  Click *Add a new subnet*.  Create and input names for both the public and private subnets.
@@ -98,108 +98,92 @@ Click *Create subnet*.
   <img src="create subnets 2.jpg">
 </p>
 
-Select the instsance and click *Connect* to get the SSH details.
+Back in **Subnets**, select the public subnet.  Under **Actions**, click *Edit subnet settings*.
 
 <p align="center">
-  <img width="800" src="launch instance 3.jpg">
+  <img width="1000" src="enable autoassign IPv4.jpg">
+</p>
+
+Check *Enable auto-assign public IPv4 address*.
+
+<p align="center">
+  <img src="enable autoassign IPv4 2.jpg">
+</p>
+
+Navigate to **Internet Gateways**, and click *Create internet gateway*.
+
+<p align="center">
+  <img width="1000" src="create igw.jpg">
+</p>
+
+Name the internet gateway and click *Create internet gateway*.
+
+<p align="center">
+  <img  src="create igw 2.jpg">
+</p>
+
+Click *Attach to a VPC*.
+
+<p align="center">
+  <img width="1000" src="attach igw to vpc.jpg">
+</p>
+
+Select *MyVPC* and click *Attach internet gateway*.
+
+<p align="center">
+  <img src="attach igw to vpc 2.jpg">
+</p>
+
+Switch to **Route Tables** and click *Create route table*.
+
+<p align="center">
+  <img width="1000" src="create route table.jpg">
+</p>
+
+Input a name for the route table and click *Create route table*.
+
+<p align="center">
+  <img src="create route table 2.jpg">
+</p>
+
+Click *Edit routes*.
+
+<p align="center">
+  <img width="1000" src="edit routes.jpg">
+</p>
+
+Click *Add route*. Select *0.0.0.0/0* and the internet gateway.  Click *Save changes*.
+
+<p align="center">
+  <img width="1000" src="edit routes 2.jpg">
+</p>
+
+Click to *Subnet associations*.
+
+<p align="center">
+  <img width="1000" src="subnet assoc.jpg">
+</p>
+
+Click *Edit subnet associations*.
+
+<p align="center">
+  <img width="1000" src="subnet assoc 2.jpg">
+</p>
+
+Check the public subnet and click *Save associations*.
+
+<p align="center">
+  <img width="1000" src="subnet assoc 3.jpg">
 </p>
 
 <p align="center">
-  <img src="ssh.jpg">
-</p>
-
-Within Putty, in Session under Host Name, input ec2-user@*instance-public-dns*.
-
-Under Connection > SSH > Auth > Authentication parameters > Private key file for authentication, broswe to and select the key file for the instance.
-
-Within the terminal, input 
-
-
-
-<code>sudo su\
-yum update -y\
-yum install httpd -y\
-nano /var/www/html/test.html
-</code>
-
-With the nano editor, type <code>Whizlabs Test Page</code>.
-Press ctrl + X, type Y and hit enter.
-
-
-Back in AWS, navigate to **EC2** > **Elastic Block Store** > **Snapshots**, and click *create snapahot*.
-
-<p align="center">
-  <img width="800" src="create snapshot.jpg">
-</p>
-
-
-
-<p align="center">
-  <img width="800" src="create snapshot 2.jpeg">
-</p>
-
-Wait for the sanpshot to be created.
-
-<p align="center">
-  <img width="800" src="create snapshot 3.jpeg">
-</p>
-
-<p align="center">
-  <img width="800" src="create snapshot 4.jpeg">
-</p>
-
-Under **Actions**, click *Create image from snapshot*.
-
-<p align="center">
-  <img width="800" src="create ami.jpg">
-</p>
-
-Input a name for the image and click *Create image*.
-
-<p align="center">
-  <img width="800" src="create ami 2.jpg">
-</p>
-
-Under **Images** > **AMIs** and **Actions**, click *Copy AMI*.
-
-<p align="center">
-  <img width="800" src="copy ami.jpg">
-</p>
-
-Enter a name and click *Copy AMI*.
-
-<p align="center">
-  <img width="800" src="copy ami 2.jpg">
-</p>
-
-Switch to *ap-south-1*  and wait for the copy to finish.
-
-<p align="center">
-  <img width="800" src="copy ami 3.jpg">
-</p>
-
-Click *Launch instance from AMI*.
-
-<p align="center">
-  <img width="800" src="copy ami 4.jpg">
-</p>
-
-Input a name.  From **My AMIs**, select the copied ami.  Create a new key pair and ensure SSH and HTTP trafffic are allowed.
-
-Click *Launch instance*.
-
-<p align="center">
-  <img width="800" src="launch migrated instance 2.jpg">
-</p>
-
-<p align="center">
-  <img src="create key pair 2.jpg">
+  <img width="1000" src="launch ec2.jpg">
 </p>
 
 Lab is complete.
 
 <p align="center">
-  <img width="800" src="validation.jpg">
+  <img width="1000" src="validation.jpg">
 </p>
 
 <h1>Video Example</h1>
