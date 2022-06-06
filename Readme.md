@@ -262,7 +262,7 @@ Navigate to SSH > Auth.
 
 Check *Allow agent forwarding*.
 
-For **Private key file for authentication** use the key for the public instance.
+For **Private key file for authentication**, use the key for the public instance.
 
 Click *Open*
 
