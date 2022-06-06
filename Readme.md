@@ -176,11 +176,109 @@ Check the public subnet and click *Save associations*.
   <img width="1000" src="subnet assoc 3.jpg">
 </p>
 
+Cearch/choose *EC2*.
+
+Click *Launch instance* > *Launch instance*.
+
 <p align="center">
   <img width="1000" src="launch ec2.jpg">
 </p>
 
-Lab is complete.
+Name the instance ```MyPublicEC2Server```.  Check the defaults are correct.  Create a key pair.
+
+Edit the Network settings.
+
+Chnage the **VPC** to *MyVPC* and the **Subnet** to the public subnet.
+
+*Enable* **Auto-assign publicIP**.
+
+Create a security group named ```MyEC2Server_SG``` and ensure there is an inbound security group rule to all ssh from anywhere.
+
+Click *Launch instance*.
+
+<p align="center">
+  <img width="1000" src="launch public ec2.jpg">
+</p>
+
+Launch another instance for private server.
+
+Name the instance ```MyPrivateEC2Server```.  Check the defaults are correct.  Create a key pair.
+
+Edit the Network settings.
+
+Chnage the **VPC** to *MyVPC* and the **Subnet** to the private subnet.
+
+*Disable* **Auto-assign publicIP**.
+
+Select existing security group named *MyEC2Server_SG*.
+
+Click *Launch instance*.
+
+<p align="center">
+  <img width="1000" src="launch private ec2.jpg">
+</p>
+
+Go to **VPC** > **NAT Gateways**.
+Click *Create NAT gateway*.
+
+<p align="center">
+  <img width="1000" src="create nat.jpg">
+</p>
+
+Enter  ```MyNATGateway``` for **Name** and select the public subnet.
+Click *Allocate Elastic IP* then *Create NAT gateway*.
+
+<p align="center">
+  <img width="1000" src="create nat 2.jpg">
+</p>
+
+Naviagte to **Route Tables** and select the main route table for MyVPC.
+
+Click *Routes* then *Edit routes*.
+
+<p align="center">
+  <img width="1000" src="edit routes nat.jpg">
+</p>
+
+Click *Add route*. Select *0.0.0.0/0* and the NAT gateway.  Click *Save changes*.
+
+<p align="center">
+  <img width="1000" src="edit routes nat 2.jpg">
+</p>
+
+Wait for the NAT Gateway to be deployed.
+
+<p align="center">
+  <img width="1000" src="nat avail.jpg">
+</p>
+
+<h1>Putty setup</h1>
+
+Start Pageant and add the private key pair to it.
+
+Start Putty and for host name input ```ec2-user@public-IPv4-address```.
+
+Navigate to SSH > Auth.
+
+Check *Allow agent forwarding*.
+
+For **Private key file for authentication** use the key for the public instance.
+
+Click *Open*
+
+If prompted, click *Allow*.
+
+In the terminal, type ```ssh ec2-user@privateEC2-instance-IPv4-address```.
+
+Input
+
+```
+sudo yum update -y
+sudo yum install httpd -y
+```
+
+
+<h1>Lab is complete</h1>
 
 <p align="center">
   <img width="1000" src="validation.jpg">
