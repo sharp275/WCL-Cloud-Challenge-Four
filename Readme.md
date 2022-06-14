@@ -254,7 +254,7 @@ Wait for the NAT Gateway to be deployed.
 
 <h1>Putty setup</h1>
 
-Start Pageant and add the private key pair to it.
+Start Pageant and add the private key to it.
 
 Start Putty and for host name input ```ec2-user@public-IPv4-address```.
 
